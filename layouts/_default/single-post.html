@@ -1,0 +1,10 @@
+<div class="card flex-row flex-wrap align-items-center">
+    <div class="card-header border-0">
+        <img class="rounded card-img-top" src="{{.Params.Image | relURL}}" alt="{{.Title }}" style="max-width: 18rem;">
+    </div>
+    <div class="card-body px-4">
+        <h4 class="card-title"><a class="text-dark" href="{{.Permalink}}">{{.Title }}</a></h4>
+        <p class="cars-text">{{.Summary}}</p>
+        <a href="{{.Permalink}}" class="btn btn-sm btn-primary">Read More</a>
+    </div>
+</div>
