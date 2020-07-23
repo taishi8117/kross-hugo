@@ -459,18 +459,23 @@ textarea.form-control {
 }
 
 .hero-area {
-  padding: 250px 0 200px;
+  padding: 150px 0 100px;
   position: relative;
 }
 
 @media (max-width: 767px) {
   .hero-area {
-    padding: 200px 0 150px;
+    padding: 100px 0 50px;
     overflow: hidden;
   }
 }
 
 .hero-area h1 {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-area h2 {
   position: relative;
   z-index: 2;
 }
