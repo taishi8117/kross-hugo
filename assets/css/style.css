@@ -925,3 +925,10 @@ blockquote {
   max-width: 100%;
   height: auto;
 }
+
+.students-image {
+  left: 0;
+  width: 100%;
+  top: -300px;
+  z-index: -1;
+}
