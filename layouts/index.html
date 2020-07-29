@@ -3,10 +3,12 @@
 <!-- hero area -->
 <section class="hero-area bg-cover overflow-hidden" id="parallax"
   style="background-image: url(images/valinor/bgimage-1.jpg);">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-lg-11 mx-auto">
-        <h1 class="text-white font-tertiary">{{ site.Data.homepage.banner.title | safeHTML }}</h1>
+        <h1 class="text-white font-tertiary mb-40">{{ site.Data.homepage.banner.title | safeHTML }}</h1>
+        <h3 class="text-white font-tertiary">{{ site.Data.homepage.banner.subtitle1 | safeHTML }}</h3>
+        <h3 class="text-white font-tertiary">{{ site.Data.homepage.banner.subtitle2 | safeHTML }}</h3>
       </div>
     </div>
   </div>
@@ -19,8 +21,14 @@
   <div class="container">
     <div class="row">
       {{ with site.Data.homepage.about }}
-      <div class="col-lg-10 mx-auto text-center">
-        <p class="font-secondary lead text-dark">{{.content | markdownify}}</p>
+      <div class="col-lg-12 mx-auto text-center mb-20">
+        <h3 class="section-title mb-4">{{.title | markdownify}}</h3>
+        <h3 class="section-title mb-4">{{.subtitle | markdownify}}</h3>
+      </div>
+      <div class="col-lg-11 mx-auto text-center">
+        <p class="font-primary lead text-dark">{{.headline | markdownify}}</p>
+        <p class="font-primary lead text-dark">{{.content | markdownify}}</p>
+        <p class="font-primary lead text-dark">{{.content2 | markdownify}}</p>
       </div>
       {{ end }}
     </div>
@@ -31,36 +39,35 @@
 
 {{ if site.Data.homepage.join.enable }}
 <!-- join -->
-<section class="section">
+<section class="section section-no-vertical-padding bg-student" id="for-students">
   <div class="container-fluid px-0">
-    <div class="d-flex row">
-      {{ with site.Data.homepage.join.students }}
-      <div class="col-12 col-lg-5 order-lg-last">
-        <img src="{{ .mobile_image | absURL }}" class="mb-4 d-lg-none img-fluid" alt="icon">
-        <img src="{{ .image | absURL }}" class="mb-4 d-none d-lg-block students-image" alt="icon">
+    {{ with site.Data.homepage.join.students }}
+    <div class="d-flex row no-gutters hover-bg-student"
+        onclick="window.open('{{ .URL | absURL }}');" style="cursor: pointer;">
+      <div class="col-6 order-last">
+        <img src="{{ .mobile_image | absURL }}" class="img-fluid students-image" alt="icon">
+        <!-- <img src="{{ .image | absURL }}" class="mb-4 d-none d-lg-block students-image" alt="icon"> -->
       </div>
-      <div class="col-12 col-lg-7 order-lg-first mx-40">
-        <a href="{{ .URL | absURL }}" target="_blank" class="col-lg-3 col-md-4 text-center hover-shadow pt-3 mx-auto">
-          <h2 class="section-title mb-4">{{ .title }}</h4>
-            <p>{{ .content | markdownify }}</p>
-        </a>
+      <div class="col-6 order-first px-3 align-self-center text-center">
+        <h3 class="section-title mb-20">{{ .title }}</h3>
+        <p class="small-lead font-primary mb-20">{{ .content | markdownify }}</p>
+        <p class="small-lead font-primary">Fill out this form!</p>
       </div>
       {{ end }}
     </div>
 </section>
-<section class="section">
+<section class="section section-no-vertical-padding bg-employer" id="for-employers">
   <div class="container-fluid px-0">
-    <div class="row">
       {{ with site.Data.homepage.join.employers }}
-      <div class="col-12 col-lg-5">
-        <img src="{{ .mobile_image | absURL }}" class="mb-4 d-lg-none img-fluid" alt="icon">
-        <img src="{{ .image | absURL }}" class="mb-4 d-none d-lg-block float-right students-image" alt="icon">
+    <div class="d-flex row no-gutters hover-bg-employer"
+        onclick="window.open('{{ .URL | absURL }}');" style="cursor: pointer;">
+      <div class="col-6">
+        <img src="{{ .mobile_image | absURL }}" class="img-fluid students-image" alt="icon">
       </div>
-      <div class="col-12 col-lg-7">
-        <a href="{{ .URL | absURL }}" target="_blank" class="col-lg-3 col-md-4 text-center hover-shadow pt-3 mx-auto">
-          <h2 class="section-title mb-4">{{ .title }}</h4>
-            <p>{{ .content | markdownify }}</p>
-        </a>
+      <div class="col-6 px-3 align-self-center text-center">
+        <h3 class="section-title mb-20">{{ .title }}</h3>
+        <p class="small-lead font-primary mb-20">{{ .content | markdownify }}</p>
+        <p class="small-lead font-primary">Fill out this form!</p>
       </div>
       {{ end }}
     </div>
@@ -71,7 +78,7 @@
 
 
 <!-- our story -->
-<section class="section">
+<section class="section bg-white">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
@@ -90,7 +97,7 @@
 <!-- team -->
 {{ if site.Data.about.team.enable }}
 {{ with site.Data.about.team }}
-<section class="section">
+<section class="section bg-white">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
@@ -102,7 +109,7 @@
           <img src="{{ .image | absURL }}" class="card-img-top">
           <div class="card-body">
             <h4 class="card-title">{{.title }}</h4>
-            <p class="text-light font-secondary">{{.designation }}</p>
+            <p class="text-dark font-secondary">{{.designation }}</p>
           </div>
         </div>
       </div>
@@ -115,7 +122,7 @@
 <!-- /team -->
 
 <!-- contact -->
-<section class="section section-on-footer" data-background="{{`images/backgrounds/bg-dots.png` | absURL}}">
+<section class="section section-on-footer" id="contact" data-background="{{`images/backgrounds/bg-dots.png` | absURL}}">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">

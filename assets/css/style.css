@@ -23,9 +23,22 @@ body {
 p {
   font-weight: 400;
   color: #4c4c4c;
-  font-size: 15px;
+  font-size: 1.25rem;
   line-height: 1.8;
   font-family: roboto, sans-serif;
+}
+
+.lead-2 {
+  font-size: 2.0rem;
+  font-weight: 700;
+}
+
+.lead {
+  font-size: 1.5rem;
+}
+
+.small-lead {
+  font-size: 1.25rem;
 }
 
 h1,
@@ -219,6 +232,11 @@ a:hover {
   padding-bottom: 80px;
 }
 
+.section-no-vertical-padding {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
 .section-title {
   margin-bottom: 80px;
   font-family: bwnistaint-xbd;
@@ -258,7 +276,19 @@ a:hover {
 }
 
 .bg-gray {
-  background: #eaeaea !important;
+  background: #d7d7d8 !important;
+}
+
+.bg-light-blue {
+  background: #c4dff6 !important;
+}
+
+.bg-student {
+  background: #d9f2fd !important;
+}
+
+.bg-employer {
+  background: #e4f3e5 !important;
 }
 
 .text-primary {
@@ -274,7 +304,11 @@ a:hover {
 }
 
 .text-light {
-  color: #999 !important;
+  color: #d7d7d8 !important;
+}
+
+.text-dark-green {
+  color: #537b35 !important;
 }
 
 .mb-10 {
@@ -428,19 +462,19 @@ textarea.form-control {
 
 .navigation.nav-bg {
   background-color: var(--primary-color);
-  padding: 15px 100px;
+  padding: 5px 100px;
 }
 
 @media (max-width: 991px) {
   .navigation.nav-bg {
-    padding: 15px 20px;
+    padding: 5px 20px;
   }
 }
 
 @media (max-width: 991px) {
   .navigation {
     padding: 20px;
-    background: var(--primary-color);
+    /* background: var(--primary-color); */
   }
 }
 
@@ -458,6 +492,10 @@ textarea.form-control {
   color: #fff;
 }
 
+#nav-title {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
 .hero-area {
   padding: 200px 0 150px;
   position: relative;
@@ -473,16 +511,22 @@ textarea.form-control {
 .hero-area h1 {
   position: relative;
   z-index: 2;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
-.hero-area h2 {
+.hero-area h3 {
   position: relative;
   z-index: 2;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .layer {
   position: absolute;
   z-index: 1;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 #l1 {
@@ -596,6 +640,30 @@ textarea.form-control {
 }
 
 .hover-bg-primary:hover * {
+  color: #fff;
+}
+
+.hover-bg-student {
+  transition: 0.3s ease;
+}
+
+.hover-bg-student:hover {
+  background: #03a9f4;
+}
+
+.hover-bg-student:hover * {
+  color: #fff;
+}
+
+.hover-bg-employer {
+  transition: 0.3s ease;
+}
+
+.hover-bg-employer:hover {
+  background: #4caf50;
+}
+
+.hover-bg-employer:hover * {
   color: #fff;
 }
 
