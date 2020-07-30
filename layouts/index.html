@@ -5,8 +5,10 @@
   style="background-image: url(images/valinor/bgimage-1.jpg);">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-11 mx-auto">
-        <h1 class="text-white font-tertiary mb-40">{{ site.Data.homepage.banner.title | safeHTML }}</h1>
+      <div class="col-lg-12 mx-auto text-center">
+        <h1 class="text-white d-none d-lg-block font-tertiary mb-40">{{ site.Data.homepage.banner.title | safeHTML }}</h1>
+        <h1 class="text-white d-lg-none font-tertiary">{{ site.Data.homepage.banner.title_mobile_1 | safeHTML }}</h1>
+        <h1 class="text-white d-lg-none font-tertiary mb-40">{{ site.Data.homepage.banner.title_mobile_2 | safeHTML }}</h1>
         <h3 class="text-white font-tertiary">{{ site.Data.homepage.banner.subtitle1 | safeHTML }}</h3>
         <h3 class="text-white font-tertiary">{{ site.Data.homepage.banner.subtitle2 | safeHTML }}</h3>
       </div>
@@ -21,14 +23,8 @@
   <div class="container">
     <div class="row">
       {{ with site.Data.homepage.about }}
-      <div class="col-lg-12 mx-auto text-center mb-20">
-        <h3 class="section-title mb-4">{{.title | markdownify}}</h3>
-        <h3 class="section-title mb-4">{{.subtitle | markdownify}}</h3>
-      </div>
-      <div class="col-lg-11 mx-auto text-center">
-        <p class="font-primary lead text-dark">{{.headline | markdownify}}</p>
+      <div class="col-lg-12 mx-auto text-center">
         <p class="font-primary lead text-dark">{{.content | markdownify}}</p>
-        <p class="font-primary lead text-dark">{{.content2 | markdownify}}</p>
       </div>
       {{ end }}
     </div>
@@ -44,14 +40,14 @@
     {{ with site.Data.homepage.join.students }}
     <div class="d-flex row no-gutters hover-bg-student"
         onclick="window.open('{{ .URL | absURL }}');" style="cursor: pointer;">
-      <div class="col-6 order-last">
-        <img src="{{ .mobile_image | absURL }}" class="img-fluid students-image" alt="icon">
-        <!-- <img src="{{ .image | absURL }}" class="mb-4 d-none d-lg-block students-image" alt="icon"> -->
+      <div class="col-5 col-lg-6 order-last">
+        <img src="{{ .image | absURL }}" class="d-none d-lg-block img-fluid students-image" alt="icon">
+        <img src="{{ .mobile_image | absURL }}" class="d-block d-lg-none students-image" alt="icon">
       </div>
-      <div class="col-6 order-first px-3 align-self-center text-center">
-        <h3 class="section-title mb-20">{{ .title }}</h3>
-        <p class="small-lead font-primary mb-20">{{ .content | markdownify }}</p>
-        <p class="small-lead font-primary">Fill out this form!</p>
+      <div class="col-7 col-lg-6 order-first px-1 px-lg-3 pt-3 align-self-center text-center">
+        <h3 class="section-title mb-4 mb-lg-5">{{ .title }}</h3>
+        <p class="small-lead font-primary">{{ .content | markdownify }}</p>
+        <p class="small-lead font-primary">Fill out this form</p>
       </div>
       {{ end }}
     </div>
@@ -61,13 +57,14 @@
       {{ with site.Data.homepage.join.employers }}
     <div class="d-flex row no-gutters hover-bg-employer"
         onclick="window.open('{{ .URL | absURL }}');" style="cursor: pointer;">
-      <div class="col-6">
-        <img src="{{ .mobile_image | absURL }}" class="img-fluid students-image" alt="icon">
+      <div class="col-5 col-lg-6">
+        <img src="{{ .image | absURL }}" class="d-none d-lg-block img-fluid students-image" alt="icon">
+        <img src="{{ .mobile_image | absURL }}" class="d-block d-lg-none students-image" alt="icon">
       </div>
-      <div class="col-6 px-3 align-self-center text-center">
+      <div class="col-7 col-lg-6 px-1 px-lg-3 pt-3 align-self-center text-center">
         <h3 class="section-title mb-20">{{ .title }}</h3>
         <p class="small-lead font-primary mb-20">{{ .content | markdownify }}</p>
-        <p class="small-lead font-primary">Fill out this form!</p>
+        <p class="small-lead font-primary">Fill out this form</p>
       </div>
       {{ end }}
     </div>
