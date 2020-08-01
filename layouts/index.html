@@ -6,9 +6,11 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 mx-auto text-center">
-        <h1 class="text-white d-none d-lg-block font-tertiary mb-40">{{ site.Data.homepage.banner.title | safeHTML }}</h1>
+        <h1 class="text-white d-none d-lg-block font-tertiary mb-40">{{ site.Data.homepage.banner.title | safeHTML }}
+        </h1>
         <h1 class="text-white d-lg-none font-tertiary">{{ site.Data.homepage.banner.title_mobile_1 | safeHTML }}</h1>
-        <h1 class="text-white d-lg-none font-tertiary mb-40">{{ site.Data.homepage.banner.title_mobile_2 | safeHTML }}</h1>
+        <h1 class="text-white d-lg-none font-tertiary mb-40">{{ site.Data.homepage.banner.title_mobile_2 | safeHTML }}
+        </h1>
         <h3 class="text-white font-tertiary">{{ site.Data.homepage.banner.subtitle1 | safeHTML }}</h3>
         <h3 class="text-white font-tertiary">{{ site.Data.homepage.banner.subtitle2 | safeHTML }}</h3>
       </div>
@@ -24,7 +26,8 @@
     <div class="row">
       {{ with site.Data.homepage.about }}
       <div class="col-lg-12 mx-auto text-center">
-        <p class="font-primary lead text-dark">{{.content | markdownify}}</p>
+        <p class="font-primary lead text-dark mb-3 mb-lg-5">{{.content | markdownify}}</p>
+        <a href="{{ .button_url }}" target="_blank" class="btn btn-primary">{{ .button_title }}</a>
       </div>
       {{ end }}
     </div>
@@ -35,11 +38,18 @@
 
 {{ if site.Data.homepage.join.enable }}
 <!-- join -->
+<section class="section section-no-vertical-padding" id="for-students">
+  <div class="container-fluid px-0">
+    <div class="col-12 text-center">
+      <h2 class="section-title">Join the Movement</h2>
+    </div>
+  </div>
+</section>
 <section class="section section-no-vertical-padding bg-student" id="for-students">
   <div class="container-fluid px-0">
     {{ with site.Data.homepage.join.students }}
-    <div class="d-flex row no-gutters hover-bg-student"
-        onclick="window.open('{{ .URL | absURL }}');" style="cursor: pointer;">
+    <div class="d-flex row no-gutters hover-bg-student" onclick="window.open('{{ .URL | absURL }}');"
+      style="cursor: pointer;">
       <div class="col-5 col-lg-6 order-last">
         <img src="{{ .image | absURL }}" class="d-none d-lg-block img-fluid students-image" alt="icon">
         <img src="{{ .mobile_image | absURL }}" class="d-block d-lg-none students-image" alt="icon">
@@ -54,9 +64,9 @@
 </section>
 <section class="section section-no-vertical-padding bg-employer" id="for-employers">
   <div class="container-fluid px-0">
-      {{ with site.Data.homepage.join.employers }}
-    <div class="d-flex row no-gutters hover-bg-employer"
-        onclick="window.open('{{ .URL | absURL }}');" style="cursor: pointer;">
+    {{ with site.Data.homepage.join.employers }}
+    <div class="d-flex row no-gutters hover-bg-employer" onclick="window.open('{{ .URL | absURL }}');"
+      style="cursor: pointer;">
       <div class="col-5 col-lg-6">
         <img src="{{ .image | absURL }}" class="d-none d-lg-block img-fluid students-image" alt="icon">
         <img src="{{ .mobile_image | absURL }}" class="d-block d-lg-none students-image" alt="icon">
@@ -106,7 +116,9 @@
           <img src="{{ .image | absURL }}" class="card-img-top">
           <div class="card-body">
             <h4 class="card-title">{{.title }}</h4>
-            <p class="text-dark font-secondary">{{.designation }}</p>
+            {{ range .item }}
+            <p class="text-color  font-secondary mb-0" style="font-size: 1.0rem;">{{.content }}</p>
+            {{ end }}
           </div>
         </div>
       </div>
@@ -146,7 +158,7 @@
               <textarea name="message" id="message" class="form-control px-0 mb-4" placeholder="Message"></textarea>
             </div>
             <div class="col-lg-6 col-10 mx-auto">
-              <button class="btn btn-primary w-100">send</button>
+              <button class="btn btn-primary w-100">Send</button>
             </div>
           </form>
         </div>
