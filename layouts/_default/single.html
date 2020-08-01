@@ -5,14 +5,14 @@
   <section class="section">
     <div class="container">
       <div class="col-12 text-center">
-        <h2 class="text-black font-tertiary mb-40">{{.Title}}</h1>
+        <h2 class="text-black font-tertiary mb-40" style="line-height: 1.5;">{{.Title}}</h1>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-9 text-center mb-4">
           <p class="font-secondary">Published on {{ .PublishDate.Format "Jan 02, 2006" }} by <span class="text-primary">{{site.Params.Author}}</span></p>
         </div>
         <div class="col-lg-9">
-          <div class="content">
+          <div class="content text-justify">
             {{.Content }}
           </div>
         </div>

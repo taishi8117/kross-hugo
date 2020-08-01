@@ -15,6 +15,19 @@ $(window).on('load', function () {
 		}
 	});
 
+	//$(function () {
+	//	$(".nav-link").click(function () {
+	//		console.log($(this).attr('href'));
+	//		var nav_height = $('.navigation').height();
+	//		console.log(nav_height);
+
+	//		$('html, body').animate({
+	//			scrollTop: $('#for-employers').offset().top - nav_height
+	//		}, 500);
+	//		return false;
+	//	});
+	//});
+
 	// Background-images
 	$('[data-background]').each(function () {
 		$(this).css({
