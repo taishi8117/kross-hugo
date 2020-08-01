@@ -8,25 +8,41 @@ $(window).on('load', function () {
 
 	// Sticky Menu
 	$(window).scroll(function () {
-		if ($('.navigation').offset().top > 100) {
+		var expanded = $('.navbar-toggler').attr("aria-expanded");
+		if ($('.navigation').offset().top > 100 || expanded == "true") {
 			$('.navigation').addClass('nav-bg');
 		} else {
 			$('.navigation').removeClass('nav-bg');
 		}
 	});
 
-	//$(function () {
-	//	$(".nav-link").click(function () {
-	//		console.log($(this).attr('href'));
-	//		var nav_height = $('.navigation').height();
-	//		console.log(nav_height);
+	$('.navbar-toggler').click(function () {
+		var expanded = $(this).attr("aria-expanded");
+		if (expanded == "true" && $('.navigation').offset().top <= 100) {
+			$('.navigation').removeClass('nav-bg');
+			// console.log("will collapse");
+		} else {
+			$('.navigation').addClass('nav-bg');
+			// console.log("will expand");
+		}
+	});
 
-	//		$('html, body').animate({
-	//			scrollTop: $('#for-employers').offset().top - nav_height
-	//		}, 500);
-	//		return false;
-	//	});
-	//});
+	$(function () {
+		$(".nav-link").click(function () {
+			var nav_height = $('.navigation').height();
+			var target = $(this).attr('href');
+			// TODO: make it work from non-/ page too
+			if (window.location.pathname == '/' && target.substring(0,2) == '/#') {
+				$('html, body').animate({
+					scrollTop: $(target.substring(1)).offset().top - nav_height
+				}, 500);
+			} else {
+				window.location = target;
+			}
+			
+			return false;
+		});
+	});
 
 	// Background-images
 	$('[data-background]').each(function () {
